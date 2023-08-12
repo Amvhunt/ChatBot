@@ -5,6 +5,27 @@ class dbworker:
 	def __init__(self,database_file):
 		self.connection = sqlite3.connect(database_file)
 		self.cursor = self.connection.cursor()
+		self.cursor.execute('''CREATE TABLE 'users' (
+                id INTEGER PRIMARY KEY,
+                telegram_id INTEGER,
+                username TEXT,
+                full_name TEXT,
+                telegram_username TEXT
+            );
+        ''')
+		self.cursor.execute('''CREATE TABLE 'profile_list' (
+                id INTEGER PRIMARY KEY,
+                telegram_id INTEGER,
+                telegram_username TEXT,
+                name TEXT,
+                description TEXT,
+                city TEXT,
+                photo TEXT,
+                sex TEXT,
+                age INTEGER,
+                social_link TEXT
+            );
+        ''')
 	def user_exists(self, user_id):
 		'''Проверка есть ли юзер в бд'''
 		with self.connection:
