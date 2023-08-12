@@ -51,11 +51,11 @@ async def start(message : types.Message):
 
 	magic_start.add(button_start)
 	await message.answer('Привет👋\n\nЭто Your Bunny Wrote бот и я советую перечитать названия🤠\nА ещё я советую задержаться у нас подольше, у нас тут много интересного\n\nYour Bunny Wrote - место для знакомств : \n - скейтеров🛹\n - хипстеров🦹‍♀️ \n и инопланетян👽',reply_markup=magic_start)
-	await message.answer_sticker('CAADAgADZgkAAnlc4gmfCor5YbYYRAI')
+	await message.answer_sticker('CAACAgIAAxkBAAEJ_jZk1zLywNMHyu6RSD0SlGgAAaRQPmAAAhkAA8PGgQPQfGYRIueN2TAE')
 	if(not db.user_exists(message.from_user.id)):
 		#если юзера нет в базе добавляем его
 		db.add_user(message.from_user.username,message.from_user.id,message.from_user.full_name)
-		await bot.send_message(-1001406772763,f'Новый пользователь!\nID - {str(message.from_user.id)}\nusername - {str(message.from_user.username)}')
+		await bot.send_message(-5042145315,f'Новый пользователь!\nID - {str(message.from_user.id)}\nusername - {str(message.from_user.username)}')
 #хендлер для команды Зайти в волшебный мир
 
 @dp.message_handler(lambda message: message.text == 'Зайти в волшебный мир Your Bunny врота🌀' or message.text == '/magic_start',state='*')
@@ -812,7 +812,7 @@ async def end(message : types.Message):
 
 @dp.message_handler(state='*')
 async def send_log(message : types.Message):
-	await bot.send_message(-1001406772763,f'ID - {str(message.from_user.id)}\nusername - {str(message.from_user.username)}\nmessage - {str(message.text)}')
+	await bot.send_message(-5042145315,f'ID - {str(message.from_user.id)}\nusername - {str(message.from_user.username)}\nmessage - {str(message.text)}')
 
 
 executor.start_polling(dp, skip_updates=True)
